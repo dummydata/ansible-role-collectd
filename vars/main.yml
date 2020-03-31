@@ -36,5 +36,7 @@ _collectd_plugin_dependencies:
       - collectd-write_http
     RedHat:
       - collectd-write_http
+  openvpn:
+    default: []
 
 collectd_service: collectd
