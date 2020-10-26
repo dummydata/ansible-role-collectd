@@ -1,17 +1,17 @@
-# collectd
+# [collectd](#collectd)
 
 Install and configure collectd on your system.
 
-|Travis|GitHub|Quality|Downloads|
-|------|------|-------|---------|
-|[![travis](https://travis-ci.com/robertdebock/ansible-role-collectd.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-collectd)|[![github](https://github.com/robertdebock/ansible-role-collectd/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-collectd/actions)|[![quality](https://img.shields.io/ansible/quality/46251)](https://galaxy.ansible.com/robertdebock/collectd)|[![downloads](https://img.shields.io/ansible/role/d/46251)](https://galaxy.ansible.com/robertdebock/collectd)|
+|Travis|GitHub|Quality|Downloads|Version|
+|------|------|-------|---------|-------|
+|[![travis](https://travis-ci.com/robertdebock/ansible-role-collectd.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-collectd)|[![github](https://github.com/robertdebock/ansible-role-collectd/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-collectd/actions)|[![quality](https://img.shields.io/ansible/quality/46251)](https://galaxy.ansible.com/robertdebock/collectd)|[![downloads](https://img.shields.io/ansible/role/d/46251)](https://galaxy.ansible.com/robertdebock/collectd)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-collectd.svg)](https://github.com/robertdebock/ansible-role-collectd/releases/)|
 
-## Example Playbook
+## [Example Playbook](#example-playbook)
 
 This example is taken from `molecule/resources/converge.yml` and is tested on each push, pull request and release.
 ```yaml
 ---
-- name: Converge
+- name: converge
   hosts: all
   become: yes
   gather_facts: yes
@@ -56,7 +56,7 @@ This example is taken from `molecule/resources/converge.yml` and is tested on ea
 The machine may need to be prepared using `molecule/resources/prepare.yml`:
 ```yaml
 ---
-- name: Converge
+- name: prepare
   hosts: all
   become: yes
   gather_facts: no
@@ -66,13 +66,13 @@ The machine may need to be prepared using `molecule/resources/prepare.yml`:
     - role: robertdebock.epel
 ```
 
-For verification `molecule/resources/verify.yml` run after the role has been applied.
+For verification `molecule/resources/verify.yml` runs after the role has been applied.
 ```yaml
 ---
 - name: Verify
   hosts: all
   become: yes
-  gather_facts: yes
+  gather_facts: no
 
   tasks:
     - name: check if connection still works
@@ -81,12 +81,13 @@ For verification `molecule/resources/verify.yml` run after the role has been app
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
 
-## Role Variables
+## [Role Variables](#role-variables)
 
 These variables are set in `defaults/main.yml`:
 ```yaml
 ---
 # defaults file for collectd
+
 collectd_conf_hostname: "{{ ansible_hostname }}"
 collectd_conf_fqdnlookup: "false"
 collectd_conf_basedir: /var/lib/collectd
@@ -277,7 +278,7 @@ collectd_plugins: []
 #    flush_interval: 600 #seconds
 #    flush_timeout:
 #    config: |4
-#      Something: true
+#      Something: yes
 #      <Nested block>
 #        NestedKey: "value"
 #      </Nested>
@@ -286,7 +287,7 @@ collectd_plugins: []
 #      <Node "oms">
 #         URL "127.0.0.1:26000/oms.collectd"
 #         Format "JSON"
-#         StoreRates true
+#         StoreRates yes
 #      </Node>
 #  - name: postgresql
 #    config: |4
@@ -308,7 +309,7 @@ collectd_plugins: []
 #      </Database>
 ```
 
-## Requirements
+## [Requirements](#requirements)
 
 - Access to a repository containing packages, likely on the internet.
 - A recent version of Ansible. (Tests run on the current, previous and next release of Ansible.)
@@ -322,33 +323,34 @@ The following roles can be installed to ensure all requirements are met, using `
 
 ```
 
-## Context
+## [Context](#context)
 
 This role is a part of many compatible roles. Have a look at [the documentation of these roles](https://robertdebock.nl/) for further information.
 
 Here is an overview of related roles:
 ![dependencies](https://raw.githubusercontent.com/robertdebock/drawings/artifacts/collectd.png "Dependency")
 
-## Compatibility
+## [Compatibility](#compatibility)
 
-This role has been tested on these [container images](https://hub.docker.com/):
+This role has been tested on these [container images](https://hub.docker.com/u/robertdebock):
 
 |container|tags|
 |---------|----|
 |alpine|all|
-|debian|all|
+|amazon|2018.03|
 |el|8|
-|fedora|all|
+|debian|buster, bullseye|
+|fedora|31, 32|
 |opensuse|all|
-|ubuntu|bionic|
+|ubuntu|focal, bionic, xenial|
 
-The minimum version of Ansible required is 2.7 but tests have been done to:
+The minimum version of Ansible required is 2.9, tests have been done to:
 
-- The previous version, on version lower.
+- The previous version.
 - The current version.
 - The development version.
 
-## Exceptions
+## [Exceptions](#exceptions)
 
 Some variarations of the build matrix do not work. These are the variations and reasons why the build won't work:
 
@@ -357,7 +359,7 @@ Some variarations of the build matrix do not work. These are the variations and 
 | centos:7 | Plugin dependency collectd-write_http is missing. |
 
 
-## Testing
+## [Testing](#testing)
 
 [Unit tests](https://travis-ci.com/robertdebock/ansible-role-collectd) are done on every commit, pull request, release and periodically.
 
@@ -391,11 +393,18 @@ image="centos" tox
 image="debian" tag="stable" tox
 ```
 
-## License
+## [License](#license)
 
 Apache-2.0
 
+## [Contributors](#contributors)
 
-## Author Information
+I'd like to thank everybody that made contributions to this repository. It motivates me, improves the code and is just fun to collaborate.
+
+- [jellevandehaterd](https://github.com/jellevandehaterd)
+
+## [Author Information](#author-information)
 
 [Robert de Bock](https://robertdebock.nl/)
+
+Please consider [sponsoring me](https://github.com/sponsors/robertdebock).

@@ -1,8 +1,8 @@
-# Security Policy
+# [Security Policy](#security-policy)
 
 This software implements other software, it's not very likely that this software introduces new vulnerabilities.
 
-## Supported Versions
+## [Supported Versions](#supported-versions)
 
 The current major version is supported. For example if the current version is 3.4.1:
 
@@ -14,10 +14,12 @@ The current major version is supported. For example if the current version is 3.
 | 2.0.0   | :x:                |
 | 1.0.0   | :x:                |
 
-## Reporting a Vulnerability
+## [Reporting a Vulnerability](#reporting-a-vulnarability)
 
 Please [open an issue](https://github.com/robertdebock/ansible-role-collectd/issues) describing the vulnerability.
 
 Tell them where to go, how often they can expect to get an update on a
 reported vulnerability, what to expect if the vulnerability is accepted or
 declined, etc.
+
+Please consider [sponsoring me](https://github.com/sponsors/robertdebock).
